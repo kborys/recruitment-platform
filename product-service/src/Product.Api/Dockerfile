@@ -10,6 +10,7 @@ COPY ["product-service/src/Product.Domain/Product.Domain.csproj", "product-servi
 COPY ["product-service/src/Product.Application/Product.Application.csproj", "product-service/src/Product.Application/"]
 COPY ["product-service/src/Product.Infrastructure/Product.Infrastructure.csproj", "product-service/src/Product.Infrastructure/"]
 COPY ["contracts/Contracts.csproj", "contracts/"]
+COPY ["Directory.Packages.props", "."]
 
 RUN dotnet restore "product-service/src/Product.Api/Product.Api.csproj"
 

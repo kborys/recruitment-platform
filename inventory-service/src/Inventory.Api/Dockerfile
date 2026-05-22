@@ -10,6 +10,7 @@ COPY ["inventory-service/src/Inventory.Domain/Inventory.Domain.csproj", "invento
 COPY ["inventory-service/src/Inventory.Application/Inventory.Application.csproj", "inventory-service/src/Inventory.Application/"]
 COPY ["inventory-service/src/Inventory.Infrastructure/Inventory.Infrastructure.csproj", "inventory-service/src/Inventory.Infrastructure/"]
 COPY ["contracts/Contracts.csproj", "contracts/"]
+COPY ["Directory.Packages.props", "."]
 
 RUN dotnet restore "inventory-service/src/Inventory.Api/Inventory.Api.csproj"
 

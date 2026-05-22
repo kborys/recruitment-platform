@@ -29,6 +29,10 @@
     <File Path=".gitignore" />
     <File Path="compose.yaml" />
     <File Path="README.md" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Folder Name="/tools/">
+    <File Path="tools\gen-token.ps1" />
   </Folder>
   <Project Path="contracts\Contracts.csproj" />
 </Solution>
