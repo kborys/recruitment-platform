@@ -1,0 +1,28 @@
+@host = http://localhost:5002
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkZXYtdXNlciIsInJvbGUiOlsid3JpdGUiLCJyZWFkIl0sImlzcyI6InJlY3J1aXRtZW50LXBsYXRmb3JtIiwiYXVkIjoicmVjcnVpdG1lbnQtcGxhdGZvcm0iLCJuYmYiOjE3Nzk0NjUzNzUsImV4cCI6MTc3OTUwMTM3NX0.Ihf2ApOAwHrewePU4ssu4fUvg_3GcipfO0bZt1MVrb4
+
+### 
+POST {{host}}/health
+Accept: application/json
+
+###
+POST {{host}}/products
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Shovel",
+  "description": "Heavy-duty trenching shovel for digging and moving loose materials.",
+  "price": 1
+}
+
+###
+GET {{host}}/products?page=1&pageSize=10
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{host}}/products/019e5067-2ad7-7d47-9d6f-1dc0617d35a6
+Accept: application/json
+Authorization: Bearer {{token}}

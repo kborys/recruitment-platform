@@ -1,0 +1,34 @@
+<Solution>
+  <Folder Name="/e2e/">
+    <Project Path="e2e\EndToEnd.Test\EndToEnd.Test\EndToEnd.Test.csproj" />
+  </Folder>
+  <Folder Name="/inventory-service/" />
+  <Folder Name="/inventory-service/src/">
+    <Project Path="inventory-service\src\Inventory.Api\Inventory.Api.csproj" />
+    <Project Path="inventory-service\src\Inventory.Application\Inventory.Application.csproj" />
+    <Project Path="inventory-service\src\Inventory.Domain\Inventory.Domain.csproj" />
+    <Project Path="inventory-service\src\Inventory.Infrastructure\Inventory.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/inventory-service/tests/">
+    <Project Path="inventory-service\tests\Inventory.IntegrationTest\Inventory.IntegrationTest.csproj" />
+    <Project Path="inventory-service\tests\Inventory.UnitTest\Inventory.UnitTest.csproj" />
+  </Folder>
+  <Folder Name="/product-service/" />
+  <Folder Name="/product-service/src/">
+    <Project Path="product-service\src\Product.Api\Product.Api.csproj" />
+    <Project Path="product-service\src\Product.Application\Product.Application.csproj" />
+    <Project Path="product-service\src\Product.Domain\Product.Domain.csproj" />
+    <Project Path="product-service\src\Product.Infrastructure\Product.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/product-service/tests/">
+    <Project Path="product-service\tests\Product.IntegrationTest\Product.IntegrationTest.csproj" />
+    <Project Path="product-service\tests\Product.UnitTest\Product.UnitTest.csproj" />
+  </Folder>
+  <Folder Name="/SolutionItems/">
+    <File Path=".dockerignore" />
+    <File Path=".gitignore" />
+    <File Path="compose.yaml" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="contracts\Contracts.csproj" />
+</Solution>
