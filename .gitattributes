@@ -1,0 +1,14 @@
+# Default: let git detect text vs binary and normalize line endings on commit
+* text=auto
+
+# Files that must use LF on all platforms (Linux containers, shell scripts, etc.)
+*.env       text eol=lf
+*.sh        text eol=lf
+Dockerfile  text eol=lf
+*.yaml      text eol=lf
+*.yml       text eol=lf
+*.ps1       text eol=lf
+
+# Windows-specific files keep CRLF
+*.cmd       text eol=crlf
+*.bat       text eol=crlf
