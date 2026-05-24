@@ -1,9 +1,14 @@
-using Microsoft.EntityFrameworkCore;
+using MassTransit.Logging;
+using MassTransit.Monitoring;
 using Product.Api;
-using Product.Api.Products;
 using Product.Application;
 using Product.Infrastructure;
 using Product.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
+using Npgsql;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Trace;
+using Product.Api.Products;
 using Serilog;
 using Serilog.Enrichers.Span;
 
@@ -14,7 +19,7 @@ builder.Host.UseSerilog((ctx, services, cfg) => cfg
     .ReadFrom.Services(services)
     .Enrich.FromLogContext()
     .Enrich.WithSpan()
-    .Enrich.WithProperty("service.name", "product-service"));
+    .WriteTo.OpenTelemetry());
 
 builder.Services.AddOpenApi();
 builder.Services.AddProblemDetails();
@@ -24,6 +29,19 @@ builder.Services.AddHealthChecks();
 builder.Services.AddJwtAuth(builder.Configuration);
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+
+builder.Services.AddOpenTelemetry()
+    .WithTracing(tracing => tracing
+        .AddHttpClientInstrumentation()
+        .AddAspNetCoreInstrumentation()
+        .AddNpgsql()
+        .AddSource(DiagnosticHeaders.DefaultListenerName)
+        .AddOtlpExporter())
+    .WithMetrics(metrics => metrics
+        .AddHttpClientInstrumentation()
+        .AddAspNetCoreInstrumentation()
+        .AddMeter(InstrumentationOptions.MeterName)
+        .AddOtlpExporter());
 
 var app = builder.Build();
 
